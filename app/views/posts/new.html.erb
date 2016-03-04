@@ -1,0 +1,12 @@
+<h1>Create new post</h1>
+
+<%= link_to "Posts", posts_path %>
+
+<%= form_for(@post) do |f| %>
+  <%= render "shared/error_messages" %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body, size: "60x10" %>
+
+  <%= f.submit "Create post" %>
+<% end %>
