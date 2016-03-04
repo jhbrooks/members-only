@@ -1,14 +1,17 @@
 require 'test_helper'
 
 class PostsNewTest < ActionDispatch::IntegrationTest
+  def setup
+    @user = users(:one)
+    log_in_as(@user)
+  end
+
   test "invalid new post" do
     get root_path
     assert_template "posts/index"
     assert_select "a[href=?]", new_post_path
-    assert_select "a[href=?]", new_user_path
     get new_post_path
     assert_template "posts/new"
-    assert_select "a[href=?]", posts_path
     assert_no_difference "Post.count" do
       post posts_path, post: { body: "   " }
     end
@@ -20,10 +23,8 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template "posts/index"
     assert_select "a[href=?]", new_post_path
-    assert_select "a[href=?]", new_user_path
     get new_post_path
     assert_template "posts/new"
-    assert_select "a[href=?]", posts_path
     assert_difference "Post.count", 1 do
       post posts_path, post: { body: "Lorem ipsum." }
     end

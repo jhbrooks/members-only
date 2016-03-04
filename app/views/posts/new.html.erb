@@ -1,6 +1,6 @@
-<h1>Create new post</h1>
-
 <%= link_to "Posts", posts_path %>
+
+<h1>Create new post</h1>
 
 <%= form_for(@post) do |f| %>
   <%= render partial: "shared/error_messages", locals: { form_obj: @post } %>

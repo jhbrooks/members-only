@@ -1,6 +1,7 @@
-<h1>Sign up</h1>
-
 <%= link_to "Posts", posts_path %>
+<%= link_to "Log in", login_path %>
+
+<h1>Sign up</h1>
 
 <%= form_for(@user) do |f| %>
   <%= render partial: "shared/error_messages", locals: { form_obj: @user } %>
