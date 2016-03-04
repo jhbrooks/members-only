@@ -5,6 +5,7 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template "posts/index"
     assert_select "a[href=?]", new_post_path
+    assert_select "a[href=?]", new_user_path
     get new_post_path
     assert_template "posts/new"
     assert_select "a[href=?]", posts_path
@@ -19,6 +20,7 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template "posts/index"
     assert_select "a[href=?]", new_post_path
+    assert_select "a[href=?]", new_user_path
     get new_post_path
     assert_template "posts/new"
     assert_select "a[href=?]", posts_path

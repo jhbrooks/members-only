@@ -1,0 +1,20 @@
+<% provide(:error_prone_object, @user) %>
+
+<h1>Sign up</h1>
+
+<%= link_to "Posts", posts_path %>
+
+<%= form_for(@user) do |f| %>
+  <%= render partial: "shared/error_messages", locals: { form_obj: @user } %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, "Confirm Password" %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Sign up" %>
+<% end %>

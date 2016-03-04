@@ -1,9 +1,9 @@
-<% if @post.errors.any? %>
+<% if form_obj.errors.any? %>
   <div>
-    The form contains <%= pluralize(@post.errors.count, "error") %>.
+    The form contains <%= pluralize(form_obj.errors.count, "error") %>.
   </div>
   <ul>
-    <% @post.errors.full_messages.each do |msg| %>
+    <% form_obj.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>

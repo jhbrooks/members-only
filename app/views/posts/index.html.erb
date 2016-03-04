@@ -1,7 +1,14 @@
 <h1>Posts</h1>
 
 <%= link_to "New post", new_post_path %>
+<%= link_to "Sign up", new_user_path %>
 
 <ul>
   <%= render @posts %>
+</ul>
+
+<h2>Users</h2>
+
+<ul>
+  <%= render @users %>
 </ul>

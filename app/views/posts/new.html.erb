@@ -3,7 +3,7 @@
 <%= link_to "Posts", posts_path %>
 
 <%= form_for(@post) do |f| %>
-  <%= render "shared/error_messages" %>
+  <%= render partial: "shared/error_messages", locals: { form_obj: @post } %>
 
   <%= f.label :body %>
   <%= f.text_area :body, size: "60x10" %>
