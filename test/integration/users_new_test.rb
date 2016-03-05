@@ -29,5 +29,6 @@ class UsersNewTest < ActionDispatch::IntegrationTest
     assert_redirected_to posts_path
     follow_redirect!
     assert_not flash.empty?
+    assert is_test_user_logged_in?
   end
 end
