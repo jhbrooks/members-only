@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order(created_at: :desc).paginate(page: params[:page])
-    @users = User.order(created_at: :desc).all
   end
 
   def new
@@ -24,16 +23,5 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:body)
-    end
-
-    # Before filters
-
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
     end
 end

@@ -10,7 +10,7 @@ User.create!(name: "Example User",
              password: "foobar",
              password_confirmation: "foobar")
 
-5.times do |n|
+50.times do |n|
   name = Faker::Name.name
   password = "password"
   User.create!(name: name,
@@ -18,7 +18,7 @@ User.create!(name: "Example User",
                password_confirmation: password)
 end
 
-60.times do |n|
+50.times do |n|
   user = User.order(:created_at).offset(n / 10).first
   body = Faker::Lorem.paragraph
   user.posts.build(body: body).save!

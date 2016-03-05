@@ -1,0 +1,12 @@
+<%= link_to "Posts", posts_path %>
+<%= link_to "New post", new_post_path %>
+
+<h1>Users</h2>
+
+<%= will_paginate %>
+
+<ul>
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>

@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: :index
+
+  def index
+    @users = User.order(created_at: :desc).paginate(page: params[:page])
+  end
+
   def new
     @user = User.new
   end
