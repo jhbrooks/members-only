@@ -7,9 +7,13 @@
 
 <h1>Posts</h1>
 
+<%= will_paginate %>
+
 <ul>
   <%= render @posts %>
 </ul>
+
+<%= will_paginate %>
 
 <% if logged_in? %>
   <h2>Users</h2>

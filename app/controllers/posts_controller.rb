@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create]
 
   def index
-    @posts = Post.all
-    @users = User.all
+    @posts = Post.order(created_at: :desc).paginate(page: params[:page])
+    @users = User.order(created_at: :desc).all
   end
 
   def new

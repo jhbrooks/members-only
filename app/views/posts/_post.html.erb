@@ -2,5 +2,6 @@
   <% if logged_in? %>
     <p><%= post.user.name %></p>
   <% end %>
+  <p>Posted at <%= post.created_at %></p>
   <p><%= post.body %></p>
 </li>

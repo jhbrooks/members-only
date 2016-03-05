@@ -7,6 +7,11 @@ ruby '2.2.4'
 gem 'rails', '4.2.4'
 # Use BCrypt for secure passwords
 gem 'bcrypt', '3.1.7'
+# Use Faker for sample data
+gem 'faker', '1.4.2'
+# Use will_paginate for pagination
+gem 'will_paginate', '3.0.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

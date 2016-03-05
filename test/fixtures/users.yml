@@ -7,3 +7,9 @@ one:
 two:
   name: ex_two
   password_digest: <%= User.digest("password") %>
+
+<% 5.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  password_digest: <%= User.digest("password") %>
+<% end %>

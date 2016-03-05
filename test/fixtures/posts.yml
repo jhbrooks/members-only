@@ -7,3 +7,9 @@ one:
 two:
   body: Lorem ipsum.
   user: two
+
+<% 50.times do |n| %>
+post_<%= n %>:
+  body: Lorem ipsum.
+  user: user_<%= n / 10 %>
+<% end %>
