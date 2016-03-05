@@ -3,10 +3,10 @@ require 'test_helper'
 class PostsNewTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:one)
-    log_in_as(@user)
   end
 
   test "invalid new post" do
+    log_in_as(@user)
     get root_path
     assert_template "posts/index"
     assert_select "a[href=?]", new_post_path
@@ -20,11 +20,13 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     assert_template "shared/_error_messages"
   end
 
-  test "valid new post" do
+  test "valid new post with friendly forwarding" do
     get root_path
     assert_template "posts/index"
-    assert_select "a[href=?]", new_post_path
     get new_post_path
+    log_in_as(@user)
+    assert_redirected_to new_post_path
+    follow_redirect!
     assert_template "posts/new"
     assert_select "label", text: @user.name
     assert_difference "Post.count", 1 do
