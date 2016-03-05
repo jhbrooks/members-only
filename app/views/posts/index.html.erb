@@ -11,8 +11,10 @@
   <%= render @posts %>
 </ul>
 
-<h2>Users</h2>
+<% if logged_in? %>
+  <h2>Users</h2>
 
-<ul>
-  <%= render @users %>
-</ul>
+  <ul>
+    <%= render @users %>
+  </ul>
+<% end %>

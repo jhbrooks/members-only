@@ -8,8 +8,12 @@ class PostsIndexTest < ActionDispatch::IntegrationTest
   test "index of posts when logged out" do
     get posts_path
     assert_template "posts/index"
-    Post.all.each do |_post|
-      assert_select "p", text: "Lorem ipsum."
+    Post.all.each do |post|
+      assert_select "p", text: post.user.name, count: 0
+      assert_select "p", text: post.body
+    end
+    User.all.each do |user|
+      assert_select "li", text: user.name, count: 0
     end
   end
 
@@ -18,8 +22,11 @@ class PostsIndexTest < ActionDispatch::IntegrationTest
     get posts_path
     assert_template "posts/index"
     Post.all.each do |post|
-      # assert_select "p", text: "#{post.user.name}"
-      assert_select "p", text: "Lorem ipsum."
+      assert_select "p", text: post.user.name
+      assert_select "p", text: post.body
+    end
+    User.all.each do |user|
+      assert_select "li", text: user.name
     end
   end
 end

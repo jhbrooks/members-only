@@ -5,7 +5,7 @@
 <%= form_for(@post) do |f| %>
   <%= render partial: "shared/error_messages", locals: { form_obj: @post } %>
 
-  <%= f.label :body %>
+  <%= f.label :body, current_user.name %>
   <%= f.text_area :body, size: "60x10" %>
 
   <%= f.submit "Create post" %>

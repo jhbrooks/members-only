@@ -12,6 +12,7 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", new_post_path
     get new_post_path
     assert_template "posts/new"
+    assert_select "label", text: @user.name
     assert_no_difference "Post.count" do
       post posts_path, post: { body: "   " }
     end
@@ -25,6 +26,7 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", new_post_path
     get new_post_path
     assert_template "posts/new"
+    assert_select "label", text: @user.name
     assert_difference "Post.count", 1 do
       post posts_path, post: { body: "Lorem ipsum." }
     end

@@ -1,4 +1,6 @@
 <li>
-  <!-- <p> post.user.name </p> -->
+  <% if logged_in? %>
+    <p><%= post.user.name %></p>
+  <% end %>
   <p><%= post.body %></p>
 </li>

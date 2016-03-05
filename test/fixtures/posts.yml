@@ -2,6 +2,8 @@
 
 one:
   body: Lorem ipsum.
+  user: one
 
 two:
   body: Lorem ipsum.
+  user: two
