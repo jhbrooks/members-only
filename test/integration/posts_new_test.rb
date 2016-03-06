@@ -18,6 +18,8 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     end
     assert_template "posts/new"
     assert_template "shared/_error_messages"
+    assert_select "div#error_explanation"
+    assert_select "div.field_with_errors"
   end
 
   test "valid new post with friendly forwarding" do

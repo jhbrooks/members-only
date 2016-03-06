@@ -1,11 +1,10 @@
-<%= link_to "Posts", posts_path %>
-<%= link_to "New post", new_post_path %>
+<% provide(:title, "Users") %>
 
 <h1>Users</h2>
 
 <%= will_paginate %>
 
-<ul>
+<ul class="users">
   <%= render @users %>
 </ul>
 

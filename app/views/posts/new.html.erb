@@ -1,13 +1,17 @@
-<%= link_to "Posts", posts_path %>
-<%= link_to "Users", users_path %>
+<% provide(:title, "New post") %>
 
 <h1>Create new post</h1>
 
-<%= form_for(@post) do |f| %>
-  <%= render partial: "shared/error_messages", locals: { form_obj: @post } %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@post) do |f| %>
+      <%= render partial: "shared/error_messages",
+                 locals: { form_obj: @post } %>
 
-  <%= f.label :body, current_user.name %>
-  <%= f.text_area :body, size: "60x10" %>
+      <%= f.label :body, current_user.name %>
+      <%= f.text_area :body, size: "60x10", class: "form-control" %>
 
-  <%= f.submit "Create post" %>
-<% end %>
+      <%= f.submit "Create post", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
